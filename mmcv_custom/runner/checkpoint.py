@@ -18,11 +18,9 @@ except:
 
 def save_checkpoint(model, filename, optimizer=None, meta=None):
     """Save checkpoint to file.
-
     The checkpoint will have 4 fields: ``meta``, ``state_dict`` and
     ``optimizer``, ``amp``. By default ``meta`` will contain version
     and time info.
-
     Args:
         model (Module): Module whose params are to be saved.
         filename (str): Checkpoint filename.
@@ -55,7 +53,7 @@ def save_checkpoint(model, filename, optimizer=None, meta=None):
             checkpoint['optimizer'][name] = optim.state_dict()
 
     # save amp state dict in the checkpoint
-    checkpoint['amp'] = apex.amp.state_dict()
+    # checkpoint['amp'] = apex.amp.state_dict()
 
     if filename.startswith('pavi://'):
         try:
